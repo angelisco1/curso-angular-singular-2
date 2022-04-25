@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-type Sugus = {sabor: string, color: string}
+export type Sugus = {sabor: string, color: string}
 
 @Component({
   selector: 'app-sugus',

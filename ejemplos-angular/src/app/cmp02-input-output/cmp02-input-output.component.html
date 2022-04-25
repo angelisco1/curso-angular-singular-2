@@ -8,7 +8,15 @@
 <app-sugus [sugus]="{color: 'blue', sabor: 'piña'}"></app-sugus>
 <app-sugus></app-sugus>
 
+<app-form-cv
+  [nombre]="nombre"
+  [apellidos]="apellidos"
+  [email]="email"
+  (datoCambiado)="cambiarDatos($event)"
+></app-form-cv>
 
-<input type="text">
-<input type="color">
-<input type="number">
+<app-preview-cv
+  [nombre]="nombre"
+  [apellidos]="apellidos"
+  [email]="email"
+></app-preview-cv>

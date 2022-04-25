@@ -1,0 +1,23 @@
+.letraNaranja {
+  color: orange;
+}
+
+.tachado {
+  text-decoration: line-through;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.filaPar {
+  background-color: lightgray;
+}
+
+.primeraFila {
+  border-top: 1px solid black;
+}
+
+.ultimaFila {
+  border-bottom: 1px solid black;
+}
