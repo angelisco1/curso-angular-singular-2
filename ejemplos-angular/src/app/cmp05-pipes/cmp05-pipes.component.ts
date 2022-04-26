@@ -16,6 +16,15 @@ export class Cmp05PipesComponent implements OnInit {
     fechaDeCompra: new Date()
   }
 
+  count = 0
+
+  textoFiltro: string = ''
+  productos: Array<string> = [
+    'One Plus 8',
+    'iPhone X',
+    'Samsung Galaxy 5'
+  ]
+
   mensaje = new Promise((resolve) => {
     setTimeout(() => {
       resolve('Hola mundo...')
@@ -26,6 +35,11 @@ export class Cmp05PipesComponent implements OnInit {
 
   ngOnInit(): void {
     // console.log(new DescuentoPipe().transform(200, 10))
+  }
+
+  addProducto(event: any) {
+    // this.productos.push(event.target.value)
+    this.productos = [...this.productos, event.target.value]
   }
 
 }
