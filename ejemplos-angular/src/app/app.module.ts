@@ -23,6 +23,10 @@ import { InputFieldComponent } from './cmp06-formularios/input-field/input-field
 import { Cmp07ServiciosComponent } from './cmp07-servicios/cmp07-servicios.component';
 import { CmpAComponent } from './cmp07-servicios/cmp-a/cmp-a.component';
 import { CmpBComponent } from './cmp07-servicios/cmp-b/cmp-b.component';
+import { Cmp08ObservablesComponent } from './cmp08-observables/cmp08-observables.component';
+import { SuscripcionComponent } from './cmp08-observables/suscripcion/suscripcion.component';
+import { Cmp09HttpComponent } from './cmp09-http/cmp09-http.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,12 +50,16 @@ import { CmpBComponent } from './cmp07-servicios/cmp-b/cmp-b.component';
     InputFieldComponent,
     Cmp07ServiciosComponent,
     CmpAComponent,
-    CmpBComponent
+    CmpBComponent,
+    Cmp08ObservablesComponent,
+    SuscripcionComponent,
+    Cmp09HttpComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,9 @@
-<p>cmp-b works!</p>
+<h3>Cmp B</h3>
+
+<input type="text" (change)="addItem($event)">
+
+<ul>
+  <li *ngFor="let item of items">{{item}}</li>
+</ul>
+
+<p>{{usuarioALogueado}}</p>

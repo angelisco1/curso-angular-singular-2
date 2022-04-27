@@ -1,8 +1,13 @@
 <div>
   <label [for]="name">{{label}}:</label>
-  <input type="text" [id]="name">
-  <!-- <app-error-form
-    *ngIf="hayQuePintarErrores('username')"
-    [errores]="getErrores('username')"
-  ></app-error-form> -->
+  <input
+    type="text"
+    [id]="name"
+    [value]="inputValue"
+    (input)="cambiarValor($event)"
+    (blur)="setTouched()">
+  <app-error-form
+    *ngIf="control && control.invalid && control.dirty"
+    [errores]="control && control.errors"
+  ></app-error-form>
 </div>

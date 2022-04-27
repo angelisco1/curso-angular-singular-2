@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoggerService } from './servicios/logger.service';
 
 @Component({
   selector: 'app-cmp07-servicios',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Cmp07ServiciosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private logger: LoggerService) { }
 
   ngOnInit(): void {
+  }
+
+  mostrarError() {
+    this.logger.error('Hay un error')
+  }
+
+  mostrarWarning() {
+    this.logger.warning('Cuidado!')
   }
 
 }

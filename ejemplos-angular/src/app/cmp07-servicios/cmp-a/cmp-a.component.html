@@ -1,1 +1,12 @@
-<p>cmp-a works!</p>
+<h3>Cmp A</h3>
+
+<button type="button" (click)="logout()" *ngIf="isLoggedIn; else loginBtn">Logout</button>
+<ng-template #loginBtn>
+  <button type="button" (click)="login()">Login</button>
+</ng-template>
+
+<input type="text" (change)="addItem($event)">
+
+<ul>
+  <li *ngFor="let item of items">{{item}}</li>
+</ul>

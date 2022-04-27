@@ -1,0 +1,16 @@
+<h2>Http</h2>
+
+<div>
+  <input type="text" placeholder="Título tarea" #nuevaTarea>
+  <button type="button" (click)="guardar(nuevaTarea.value)">Añadir</button>
+</div>
+
+<hr>
+
+<ul>
+  <li *ngFor="let tarea of listaTareas">
+    <span>{{tarea.titulo}}</span>
+    <button type="button" (click)="completar(tarea.id)">Completar</button>
+    <button type="button" (click)="eliminar(tarea.id)">Eliminar</button>
+  </li>
+</ul>

@@ -13,7 +13,7 @@ export class ReactivoComponent implements OnInit {
   constructor() {
     this.formulario = new FormGroup({
       // username: new FormControl('', [Validators.required, CustomValidators.esStark]),
-      username: new FormControl('', [Validators.required, CustomValidators.esStarkConParams(['robb', 'arya', 'bran', 'rickon', 'tony', 'sansa'])]),
+      username: new FormControl('angel', [Validators.required, CustomValidators.esStarkConParams(['robb', 'arya', 'bran', 'rickon', 'tony', 'sansa'])]),
       email: new FormControl('angel@gmail.com', Validators.required),
 
       groupPasswords: new FormGroup({
@@ -31,9 +31,9 @@ export class ReactivoComponent implements OnInit {
     console.log(this.formulario)
   }
 
-  // getControl(name: string) {
-  //   return this.formulario.controls[name]
-  // }
+  getControl(name: string) {
+    return this.formulario.controls[name]
+  }
 
   getErrores(name: string): ValidationErrors | null {
     return this.formulario.controls[name].errors

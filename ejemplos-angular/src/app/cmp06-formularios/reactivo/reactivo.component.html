@@ -1,42 +1,44 @@
 <h3>Reactivo</h3>
 
 <form [formGroup]="formulario" (ngSubmit)="registrar()">
-  <div>
+
+  <app-input-field name="username" label="Usuario" [control]="getControl('username')" formControlName="username"></app-input-field>
+  <app-input-field name="email" label="Email" [control]="getControl('email')" formControlName="email"></app-input-field>
+  <!-- <div>
     <label for="username">Usuario:</label>
     <input type="text" id="username" formControlName="username">
     <app-error-form
       *ngIf="hayQuePintarErrores('username')"
       [errores]="getErrores('username')"
     ></app-error-form>
-  </div>
-  <!-- <app-input-field name="username" label="Usuario" [control]="getControl('username')" formControlName="username"></app-input-field> -->
-
-  <div>
+  </div> -->
+  <!-- <div>
     <label for="email">Email:</label>
     <input type="email" id="email" formControlName="email">
     <app-error-form
       *ngIf="hayQuePintarErrores('email')"
       [errores]="getErrores('email')"
     ></app-error-form>
-  </div>
+  </div> -->
 
   <div formGroupName="groupPasswords">
-
-    <div>
+    <app-input-field name="password" label="Contraseña" [control]="getControl('password')" formControlName="password"></app-input-field>
+    <app-input-field name="repetirPassword" label="Repetir Contraseña" [control]="getControl('repetirPassword')" formControlName="repetirPassword"></app-input-field>
+    <!-- <div>
       <label for="password">Contraseña:</label>
       <input type="password" id="password" formControlName="password">
-      <!-- <app-error-form
-        [errores]="getErroresInputGroup('password')"
-      ></app-error-form> -->
+      <app-error-form
+        [errores]="getErroresInputGroup('password')"password
+      ></app-error-form>
     </div>
     <div>
       <label for="repetir-password">Repetir contraseña:</label>
       <input type="password" id="repetir-password" formControlName="repetirPassword">
-      <!-- <app-error-form
+      <app-error-form
         *ngIf="hayQuePintarErrores('repetirPassword')"
         [errores]="getErrores('repetirPassword')"
-      ></app-error-form> -->
-    </div>
+      ></app-error-form>
+    </div> -->
 
     <app-error-form
       *ngIf="formulario.controls['groupPasswords'].errors"
