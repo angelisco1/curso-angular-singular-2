@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscriber } from 'rxjs';
+import { Observable, of, Subscriber, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-cmp08-observables',
@@ -38,6 +38,21 @@ export class Cmp08ObservablesComponent implements OnInit {
         console.log('Se ha terminado')
       }
     })
+
+
+    const obs2 = of({titulo: 'Pelicula 1', categoria: 'Acción'})
+      .pipe(
+        switchMap((pelicula: any) => {
+          console.log(pelicula)
+          // of => this.http.get('/peliculas?type=pelicula.categoria')
+          return of([{titulo: 'Pelicula 1', categoria: 'Acción'}, {titulo: 'Pelicula 2', categoria: 'Acción'}])
+        })
+      )
+
+    obs2.subscribe((datos: any) => {
+      console.log({datos})
+    })
+
   }
 
 }

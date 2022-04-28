@@ -1,0 +1,5 @@
+<li>
+  <span [ngStyle]="{textDecoration: tarea.completada ? 'line-through' : 'none'}">{{tarea.titulo}}</span>
+  <button type="button" (click)="completar()">Completar</button>
+  <button type="button" (click)="eliminar()">Eliminar</button>
+</li>

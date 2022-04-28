@@ -8,9 +8,5 @@
 <hr>
 
 <ul>
-  <li *ngFor="let tarea of listaTareas">
-    <span>{{tarea.titulo}}</span>
-    <button type="button" (click)="completar(tarea.id)">Completar</button>
-    <button type="button" (click)="eliminar(tarea.id)">Eliminar</button>
-  </li>
+  <app-tarea *ngFor="let t of listaTareas" [tarea]="t"></app-tarea>
 </ul>

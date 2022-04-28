@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TareasService } from './services/tareas.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cmp09-http',
@@ -8,15 +9,24 @@ import { TareasService } from './services/tareas.service';
 })
 export class Cmp09HttpComponent implements OnInit {
   listaTareas: Array<any> = []
+  subscriptions: Subscription = new Subscription()
 
   constructor(private tareasService: TareasService) { }
 
   ngOnInit(): void {
-    this.tareasService.getTareas()
+    const s1 = this.tareasService.getTareas()
       .subscribe((tareas) => {
         // console.log({tareas})
         this.listaTareas = tareas
       })
+
+    const s2 = this.tareasService.tareaEliminada$
+      .subscribe((id) => {
+        this.listaTareas = this.listaTareas.filter(t => t.id !== id)
+      })
+
+    this.subscriptions.add(s1)
+    this.subscriptions.add(s2)
   }
 
   guardar(titulo: string) {
@@ -27,17 +37,14 @@ export class Cmp09HttpComponent implements OnInit {
     }
     this.tareasService.createTarea(tarea)
       .subscribe((data) => {
-        console.log({data})
+        // console.log({data})
+        const idTarea = data.name
+        this.listaTareas.push({...tarea, id: idTarea})
       })
   }
 
-  completar(id: string) {
-
-  }
-
-  eliminar(id: string) {
-    this.tareasService.deleteTarea(id)
-      .subscribe(() => {})
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
   }
 
 }

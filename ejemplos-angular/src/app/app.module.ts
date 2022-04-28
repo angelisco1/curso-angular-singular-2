@@ -26,7 +26,16 @@ import { CmpBComponent } from './cmp07-servicios/cmp-b/cmp-b.component';
 import { Cmp08ObservablesComponent } from './cmp08-observables/cmp08-observables.component';
 import { SuscripcionComponent } from './cmp08-observables/suscripcion/suscripcion.component';
 import { Cmp09HttpComponent } from './cmp09-http/cmp09-http.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TareaComponent } from './cmp09-http/tarea/tarea.component';
+import { AuthInterceptor } from './cmp09-http/interceptors/auth.interceptor';
+import { Cmp10RoutingComponent } from './cmp10-routing/cmp10-routing.component';
+import { Error404Component } from './cmp10-routing/error404/error404.component';
+import { UsuariosComponent } from './cmp10-routing/usuarios/usuarios.component';
+import { EditarUsuarioComponent } from './cmp10-routing/editar-usuario/editar-usuario.component';
+import { InfoUsuarioComponent } from './cmp10-routing/info-usuario/info-usuario.component';
+import { NuevoUsuarioComponent } from './cmp10-routing/nuevo-usuario/nuevo-usuario.component';
+import { RoutingModule } from './cmp10-routing/app.routes';
 
 @NgModule({
   declarations: [
@@ -53,15 +62,25 @@ import { HttpClientModule } from '@angular/common/http';
     CmpBComponent,
     Cmp08ObservablesComponent,
     SuscripcionComponent,
-    Cmp09HttpComponent
+    Cmp09HttpComponent,
+    TareaComponent,
+    Cmp10RoutingComponent,
+    Error404Component,
+    UsuariosComponent,
+    EditarUsuarioComponent,
+    InfoUsuarioComponent,
+    NuevoUsuarioComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

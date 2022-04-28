@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatosService } from '../servicios/datos.service';
 import { EventosService } from '../servicios/eventos.service';
+import { TokenService } from '../servicios/token.service';
 
 @Component({
   selector: 'app-cmp-b',
@@ -11,11 +12,11 @@ export class CmpBComponent implements OnInit {
   items: Array<string> = []
   usuarioALogueado = ''
 
-  constructor(private datosService: DatosService, private eventosService: EventosService) { }
+  constructor(private datosService: DatosService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.items = this.datosService.getItems()
-    this.eventosService.usuarioLogueado.subscribe((isLoggedIn: boolean) => {
+    this.tokenService.usuarioLogueado$.subscribe((isLoggedIn: boolean) => {
       this.usuarioALogueado = isLoggedIn ? 'El usuario A se acaba de loguear' : 'El usuario A se acaba de desloguear'
     })
   }
